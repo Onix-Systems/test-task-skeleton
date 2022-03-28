@@ -25,7 +25,8 @@ class TestSkeleton
   # TestSkeleton.new.reverse_array(348597) should return [7,9,5,8,4,3]
   # TestSkeleton.new.reverse_array(0) should return [0]
   def reverse_array(number)
-    # Your solution should be here
+    arr = number.digits
+    p arr
   end
 
   # https://www.codewars.com/kata/554b4ac871d6813a03000035
