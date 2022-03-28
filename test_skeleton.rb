@@ -111,6 +111,12 @@ class TestSkeleton
   # Output:
   # The middle character(s) of the word represented as a string.
   def middle_chars(test_string)
-    # Your solution should be here
+    str = ""
+    if test_string.size % 2 == 0
+      str = test_string[test_string.size / 2 - 1] + test_string[test_string.size / 2]
+    else
+      str = test_string[(test_string.size / 2).ceil]
+    end
+    p str
   end
 end
