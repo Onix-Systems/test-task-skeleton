@@ -55,7 +55,11 @@ class TestSkeleton
   # TestSkeleton.new.my_languages({"Hindi" => 60, "Dutch" => 93, "Greek" => 71}) should return ["Dutch", "Greek", "Hindi"]
   # TestSkeleton.new.my_languages({"C++" => 50, "ASM" => 10, "Haskell" => 20}) should return [] 
   def my_languages(hash)
-    # Your solution should be here
+    selected_hash = hash.select { |key, value| value >= 60 }
+    sorted_arr = selected_hash.sort
+    res_arr = []
+    sorted_arr.each { |e| res_arr << e[0] }
+    p res_arr
   end
 
   # https://www.codewars.com/kata/563089b9b7be03472d00002b
@@ -68,7 +72,8 @@ class TestSkeleton
   # values_list = [1, 3, 4, 2]
   # TestSkeleton.new.remove_array_elements(integer_list, values_list) should return [5, 6 ,7 ,8]
   def remove_array_elements(source_array, values_array)
-    # Your solution should be here
+    values_array.each { |e| source_array.delete e }
+    p source_array
   end
 
   # https://www.codewars.com/kata/5b39e91ee7a2c103300018b3
