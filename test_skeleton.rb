@@ -41,7 +41,8 @@ class TestSkeleton
   # There will always be at least one number in the input string.
   # Output string must be two numbers separated by a single space, and highest number is first.
   def high_and_low(test_string)
-    # Your solution should be here
+    str = test_string.split(/ /).max + " " + test_string.split(/ /).min
+    p str
   end
 
   # https://www.codewars.com/kata/5b16490986b6d336c900007d
