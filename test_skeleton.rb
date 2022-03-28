@@ -10,7 +10,11 @@ class TestSkeleton
   # TestSkeleton.new.even_or_odd(0) should return "even"
   # TestSkeleton.new.even_or_odd(-42) should return "even"
   def even_or_odd(number)
-    # Your solution should be here
+    if number % 2 == 0
+      puts "even"
+    else
+      puts "odd"
+    end
   end
 
   # https://www.codewars.com/kata/5583090cbe83f4fd8c000051
