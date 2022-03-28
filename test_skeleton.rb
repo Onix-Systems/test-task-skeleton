@@ -83,7 +83,17 @@ class TestSkeleton
   # string = "alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
   # TestSkeleton.new.consecutive_duplicates(string) should return "alpha beta gamma delta alpha beta gamma delta"
   def consecutive_duplicates(string)
-    # Your solution should be here
+    arr = string.split
+    i = 0
+    while i < arr.size
+      if arr[i] == arr[i + 1]
+        arr.delete_at(i + 1)
+      else
+        i += 1
+      end
+    end
+    string = arr.join(" ")
+    p string
   end
 
   # https://www.codewars.com/kata/56747fd5cb988479af000028
