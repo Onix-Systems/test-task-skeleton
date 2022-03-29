@@ -10,11 +10,13 @@ class TestSkeleton
   # TestSkeleton.new.even_or_odd(0) should return "even"
   # TestSkeleton.new.even_or_odd(-42) should return "even"
   def even_or_odd(number)
+    res = ""
     if number % 2 == 0
-      puts "even"
+      res = "even"
     else
-      puts "odd"
+      res = "odd"
     end
+    p res
   end
 
   # https://www.codewars.com/kata/5583090cbe83f4fd8c000051
@@ -41,8 +43,10 @@ class TestSkeleton
   # There will always be at least one number in the input string.
   # Output string must be two numbers separated by a single space, and highest number is first.
   def high_and_low(test_string)
-    str = test_string.split(/ /).max + " " + test_string.split(/ /).min
-    p str
+    str = test_string.split(/ /)
+    arr = []
+    str.each { |e| arr << e.to_i }
+    p arr.max.to_s + " " + arr.min.to_s
   end
 
   # https://www.codewars.com/kata/5b16490986b6d336c900007d
@@ -56,7 +60,7 @@ class TestSkeleton
   # TestSkeleton.new.my_languages({"C++" => 50, "ASM" => 10, "Haskell" => 20}) should return [] 
   def my_languages(hash)
     selected_hash = hash.select { |key, value| value >= 60 }
-    sorted_arr = selected_hash.sort
+    sorted_arr = selected_hash.sort_by(&:last).reverse
     res_arr = []
     sorted_arr.each { |e| res_arr << e[0] }
     p res_arr
