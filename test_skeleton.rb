@@ -102,7 +102,7 @@ class TestSkeleton
       b = test_string[test_string.length / 2]
       return a + b
     else
-      return test_string[test_string.length / 2 - 1]
+      return test_string[test_string.length / 2]
     end
   end
 end
