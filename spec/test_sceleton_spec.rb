@@ -79,5 +79,4 @@ RSpec.describe TestSkeleton do
       end
     end
   end
-  
 end

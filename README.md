@@ -35,3 +35,4 @@ List of tasks to implement(All credits to https://codewars.com):
 * [Remove Array Elements](https://github.com/Murchibik/test-task-skeleton/blob/main/test_skeleton.rb#L64)
 * [Consecutive Duplicates](https://github.com/Murchibik/test-task-skeleton/blob/main/test_skeleton.rb#L74)
 * [Middle Chars](https://github.com/Murchibik/test-task-skeleton/blob/main/test_skeleton.rb#L92)
+

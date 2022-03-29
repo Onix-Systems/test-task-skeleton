@@ -124,3 +124,4 @@ class TestSkeleton
     p str
   end
 end
+
