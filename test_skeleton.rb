@@ -10,7 +10,7 @@ class TestSkeleton
   # TestSkeleton.new.even_or_odd(0) should return "even"
   # TestSkeleton.new.even_or_odd(-42) should return "even"
   def even_or_odd(number)
-    # Your solution should be here
+    number.even? ? 'even' : 'odd'
   end
 
   # https://www.codewars.com/kata/5583090cbe83f4fd8c000051
@@ -21,7 +21,7 @@ class TestSkeleton
   # TestSkeleton.new.reverse_array(348597) should return [7,9,5,8,4,3]
   # TestSkeleton.new.reverse_array(0) should return [0]
   def reverse_array(number)
-    # Your solution should be here
+    Array(number.digits)
   end
 
   # https://www.codewars.com/kata/554b4ac871d6813a03000035
@@ -36,7 +36,7 @@ class TestSkeleton
   # There will always be at least one number in the input string.
   # Output string must be two numbers separated by a single space, and highest number is first.
   def high_and_low(test_string)
-    # Your solution should be here
+    test_string.split.minmax_by(&:to_i).reverse.join(' ')
   end
 
   # https://www.codewars.com/kata/5b16490986b6d336c900007d
@@ -49,7 +49,7 @@ class TestSkeleton
   # TestSkeleton.new.my_languages({"Hindi" => 60, "Dutch" => 93, "Greek" => 71}) should return ["Dutch", "Greek", "Hindi"]
   # TestSkeleton.new.my_languages({"C++" => 50, "ASM" => 10, "Haskell" => 20}) should return [] 
   def my_languages(hash)
-    # Your solution should be here
+    hash.select { |_language, score| score >= 60 }.sort_by { |_k, v| -v }.to_h.keys
   end
 
   # https://www.codewars.com/kata/563089b9b7be03472d00002b
@@ -62,7 +62,7 @@ class TestSkeleton
   # values_list = [1, 3, 4, 2]
   # TestSkeleton.new.remove_array_elements(integer_list, values_list) should return [5, 6 ,7 ,8]
   def remove_array_elements(source_array, values_array)
-    # Your solution should be here
+    Array(source_array - values_array)
   end
 
   # https://www.codewars.com/kata/5b39e91ee7a2c103300018b3
@@ -72,7 +72,15 @@ class TestSkeleton
   # string = "alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
   # TestSkeleton.new.consecutive_duplicates(string) should return "alpha beta gamma delta alpha beta gamma delta"
   def consecutive_duplicates(string)
-    # Your solution should be here
+    prev = ''
+    str = []
+
+    string.split.each do |s|
+      str << s unless prev == s
+      prev = s
+    end
+
+    str.join(' ')
   end
 
   # https://www.codewars.com/kata/56747fd5cb988479af000028
@@ -90,6 +98,14 @@ class TestSkeleton
   # Output:
   # The middle character(s) of the word represented as a string.
   def middle_chars(test_string)
-    # Your solution should be here
+    return if test_string.length < 0 && test_string.length < 1000
+
+    middle_char = test_string.length / 2
+
+    if test_string.length.odd?
+      test_string[middle_char]
+    else
+      test_string[middle_char - 1] + test_string[middle_char]
+    end
   end
 end
