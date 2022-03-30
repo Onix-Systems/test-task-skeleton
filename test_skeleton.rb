@@ -10,7 +10,10 @@ class TestSkeleton
   # TestSkeleton.new.even_or_odd(0) should return "even"
   # TestSkeleton.new.even_or_odd(-42) should return "even"
   def even_or_odd(number)
-    # Your solution should be here
+    if number % 2 == 0
+      return "even"
+    end
+    return "odd"
   end
 
   # https://www.codewars.com/kata/5583090cbe83f4fd8c000051
@@ -21,7 +24,12 @@ class TestSkeleton
   # TestSkeleton.new.reverse_array(348597) should return [7,9,5,8,4,3]
   # TestSkeleton.new.reverse_array(0) should return [0]
   def reverse_array(number)
-    # Your solution should be here
+    res = []
+    for i in (0..number.to_s.size)
+      res = [number.to_s[i].to_i] + res
+    end
+    res.shift
+    return res
   end
 
   # https://www.codewars.com/kata/554b4ac871d6813a03000035
@@ -36,7 +44,8 @@ class TestSkeleton
   # There will always be at least one number in the input string.
   # Output string must be two numbers separated by a single space, and highest number is first.
   def high_and_low(test_string)
-    # Your solution should be here
+    res = test_string.split(" ").sort_by(&:to_i)
+    return res.last+ " " + res.first
   end
 
   # https://www.codewars.com/kata/5b16490986b6d336c900007d
@@ -49,7 +58,14 @@ class TestSkeleton
   # TestSkeleton.new.my_languages({"Hindi" => 60, "Dutch" => 93, "Greek" => 71}) should return ["Dutch", "Greek", "Hindi"]
   # TestSkeleton.new.my_languages({"C++" => 50, "ASM" => 10, "Haskell" => 20}) should return [] 
   def my_languages(hash)
-    # Your solution should be here
+    res = []
+    keys = hash.keys
+    for key in keys
+      if hash[key] >= 60
+        res.append(key)
+      end
+    end
+    return res.sort_by {|r| -hash[r]}
   end
 
   # https://www.codewars.com/kata/563089b9b7be03472d00002b
@@ -62,7 +78,16 @@ class TestSkeleton
   # values_list = [1, 3, 4, 2]
   # TestSkeleton.new.remove_array_elements(integer_list, values_list) should return [5, 6 ,7 ,8]
   def remove_array_elements(source_array, values_array)
-    # Your solution should be here
+    res = []
+    i = 0
+    while i < source_array.size
+      if !(values_array.include? source_array[i])
+        res.append(source_array[i])
+      end
+      i += 1
+    end
+    return res
+    
   end
 
   # https://www.codewars.com/kata/5b39e91ee7a2c103300018b3
@@ -72,7 +97,17 @@ class TestSkeleton
   # string = "alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
   # TestSkeleton.new.consecutive_duplicates(string) should return "alpha beta gamma delta alpha beta gamma delta"
   def consecutive_duplicates(string)
-    # Your solution should be here
+    arr = string.split(" ")
+    res = arr[0] + " "
+    for i in (1..arr.size-1)
+      if !(arr[i-1] == arr[i])
+        res += arr[i] + " "
+      end
+    end
+    if res.size > 0
+      res = res[0,res.size-1]
+    end
+    return res
   end
 
   # https://www.codewars.com/kata/56747fd5cb988479af000028
@@ -90,6 +125,10 @@ class TestSkeleton
   # Output:
   # The middle character(s) of the word represented as a string.
   def middle_chars(test_string)
-    # Your solution should be here
+    len = test_string.size
+    if len % 2 == 0
+      return test_string[((len-1) / 2).to_i, 2]
+    end
+    return test_string[len / 2]
   end
 end
