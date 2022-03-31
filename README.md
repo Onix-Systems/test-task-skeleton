@@ -25,6 +25,8 @@ Beforehand you should install Ruby 2.7 and gem Rspec (`gem install rspec`). Test
 
 ![contribute](./images/5.jpg)
 
+***Then you need to sign up form [here](https://onix.academy/courses/ruby) and wait for response from our HR specialist***
+
 List of tasks to implement(All credits to https://codewars.com):
 * [Even or Odd](https://github.com/Murchibik/test-task-skeleton/blob/main/test_skeleton.rb#L12)
 * [Reverse Array](https://github.com/Murchibik/test-task-skeleton/blob/main/test_skeleton.rb#L23)
