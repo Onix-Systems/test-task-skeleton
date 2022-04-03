@@ -64,7 +64,7 @@ class TestSkeleton
   # values_list = [1, 3, 4, 2]
   # TestSkeleton.new.remove_array_elements(integer_list, values_list) should return [5, 6 ,7 ,8]
   def remove_array_elements(source_array, values_array)
-    # Your solution should be here
+    source_array - values_array
   end
 
   # https://www.codewars.com/kata/5b39e91ee7a2c103300018b3
