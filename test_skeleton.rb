@@ -50,7 +50,8 @@ class TestSkeleton
   # TestSkeleton.new.my_languages({"Hindi" => 60, "Dutch" => 93, "Greek" => 71}) should return ["Dutch", "Greek", "Hindi"]
   # TestSkeleton.new.my_languages({"C++" => 50, "ASM" => 10, "Haskell" => 20}) should return [] 
   def my_languages(hash)
-    # Your solution should be here
+    score = 60
+    hash.filter { |key, value| value >= score }.sort_by { |key, value| -value }.map(&:first)
   end
 
   # https://www.codewars.com/kata/563089b9b7be03472d00002b
