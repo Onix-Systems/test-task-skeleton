@@ -74,7 +74,7 @@ class TestSkeleton
   # string = "alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
   # TestSkeleton.new.consecutive_duplicates(string) should return "alpha beta gamma delta alpha beta gamma delta"
   def consecutive_duplicates(string)
-    # Your solution should be here
+    string.split(' ').chunk(&:itself).map(&:first).join(' ')
   end
 
   # https://www.codewars.com/kata/56747fd5cb988479af000028
