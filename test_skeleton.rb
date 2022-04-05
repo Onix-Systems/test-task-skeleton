@@ -92,6 +92,7 @@ class TestSkeleton
   # Output:
   # The middle character(s) of the word represented as a string.
   def middle_chars(test_string)
-    # Your solution should be here
+    mid = test_string.size / 2
+    test_string.size.odd? ? test_string[mid] : test_string[mid - 1..mid]
   end
 end
