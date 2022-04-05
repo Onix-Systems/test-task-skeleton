@@ -37,7 +37,7 @@ class TestSkeleton
   # There will always be at least one number in the input string.
   # Output string must be two numbers separated by a single space, and highest number is first.
   def high_and_low(test_string)
-    test_string.split(' ').map(&:to_i).minmax.reverse.join(' ')
+    test_string.split(' ').minmax_by(&:to_i).reverse.join(' ')
   end
 
   # https://www.codewars.com/kata/5b16490986b6d336c900007d
