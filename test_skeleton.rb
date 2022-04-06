@@ -10,7 +10,11 @@ class TestSkeleton
   # TestSkeleton.new.even_or_odd(0) should return "even"
   # TestSkeleton.new.even_or_odd(-42) should return "even"
   def even_or_odd(number)
-    # Your solution should be here
+    if number % 2 == 0
+      return 'even'
+    else
+      return 'odd'
+    end
   end
 
   # https://www.codewars.com/kata/5583090cbe83f4fd8c000051
@@ -21,7 +25,7 @@ class TestSkeleton
   # TestSkeleton.new.reverse_array(348597) should return [7,9,5,8,4,3]
   # TestSkeleton.new.reverse_array(0) should return [0]
   def reverse_array(number)
-    # Your solution should be here
+    return number.to_s.split('').reverse.map { |item| item.to_i }
   end
 
   # https://www.codewars.com/kata/554b4ac871d6813a03000035
@@ -36,7 +40,7 @@ class TestSkeleton
   # There will always be at least one number in the input string.
   # Output string must be two numbers separated by a single space, and highest number is first.
   def high_and_low(test_string)
-    # Your solution should be here
+    return test_string.split(' ').minmax_by { |item| item.to_i }.reverse.join(' ')
   end
 
   # https://www.codewars.com/kata/5b16490986b6d336c900007d
@@ -49,7 +53,8 @@ class TestSkeleton
   # TestSkeleton.new.my_languages({"Hindi" => 60, "Dutch" => 93, "Greek" => 71}) should return ["Dutch", "Greek", "Hindi"]
   # TestSkeleton.new.my_languages({"C++" => 50, "ASM" => 10, "Haskell" => 20}) should return [] 
   def my_languages(hash)
-    # Your solution should be here
+    minScore = 60
+    return hash.select { |lang, score| score >= minScore }.sort_by { |key, value| -value }.to_h.keys
   end
 
   # https://www.codewars.com/kata/563089b9b7be03472d00002b
@@ -62,7 +67,7 @@ class TestSkeleton
   # values_list = [1, 3, 4, 2]
   # TestSkeleton.new.remove_array_elements(integer_list, values_list) should return [5, 6 ,7 ,8]
   def remove_array_elements(source_array, values_array)
-    # Your solution should be here
+    return source_array - values_array
   end
 
   # https://www.codewars.com/kata/5b39e91ee7a2c103300018b3
@@ -72,7 +77,20 @@ class TestSkeleton
   # string = "alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
   # TestSkeleton.new.consecutive_duplicates(string) should return "alpha beta gamma delta alpha beta gamma delta"
   def consecutive_duplicates(string)
-    # Your solution should be here
+    words_list = string.split(' ')
+    if words_list.count == 0 || words_list.count == 1
+      return string
+    end
+
+    result_array = []
+
+    for i in 0..words_list.count - 1
+      if words_list[i] != words_list[i + 1]
+        result_array.append(words_list[i])
+      end
+    end
+
+    return result_array.join(' ')
   end
 
   # https://www.codewars.com/kata/56747fd5cb988479af000028
@@ -90,6 +108,13 @@ class TestSkeleton
   # Output:
   # The middle character(s) of the word represented as a string.
   def middle_chars(test_string)
-    # Your solution should be here
+    stringLength = test_string.length
+    if stringLength % 2 == 0
+      left = test_string[stringLength / 2 - 1]
+      right = test_string[stringLength / 2]
+      return left + right
+    else 
+      return test_string[stringLength / 2]
+    end
   end
 end
