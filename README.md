@@ -1,7 +1,7 @@
 # Test task skeleton
 **Repository for test task for Ruby Internship 2022**
 
-As participant you should fork this repository, add needed code in file `test_skeleton.rb` and create contribute request to main repository.
+As participiant you should fork this repository, add needed code in file `test_skeleton.rb` and create contribute request to main repository.
 
 ***How to fork repository***
 
